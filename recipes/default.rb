@@ -7,7 +7,7 @@
 
 # install package specified in attributes
 # see http://wiki.opscode.com/display/chef/Resources#Resources-Package
-default[:system_base][:packages].each do |p|
+node[:system_base][:packages].each do |p|
   package p[:name] do
     version p[:version] if p[:version]
     action p[:action] if p[:action]
