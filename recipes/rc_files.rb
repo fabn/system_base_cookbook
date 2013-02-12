@@ -19,3 +19,11 @@ template '/etc/gitignore' do
   group 'root'
   mode 0644
 end
+
+# Global configuration for git
+template '/etc/inputrc' do
+  source 'inputrc.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+end
