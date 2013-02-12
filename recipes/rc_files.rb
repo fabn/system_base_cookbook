@@ -20,9 +20,17 @@ template '/etc/gitignore' do
   mode 0644
 end
 
-# Global configuration for git
+# Global configuration for readline
 template '/etc/inputrc' do
   source 'inputrc.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+end
+
+# Shell aliases and inclusions
+template '/etc/profile.d/shell_config.sh' do
+  source 'shell_config.sh.erb'
   owner 'root'
   group 'root'
   mode 0644
