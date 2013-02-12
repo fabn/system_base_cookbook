@@ -1,0 +1,28 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Root
+	email = root@<%= node[:fqdn] %>
+[core]
+    # see https://help.github.com/articles/ignoring-files
+	excludesfile = /etc/gitignore
+	autocrlf = input
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    rb = rebase
+    df = diff
+    dc = diff --cached
+    lg = log -p
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = ls-files
+
+    # Show files ignored by git:
+    ign = ls-files -o -i --exclude-standard
+[push]
+	default = upstream

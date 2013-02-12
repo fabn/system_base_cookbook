@@ -16,6 +16,7 @@ See `attributes/default.rb` file for commented attributes used in various recipe
 
 * __system_base::default__: Install packages defined in `node[:system_base][:packages]`
 * __system_base::locale__: Install a template for `/etc/default/locale`
+* __system_base::rc_files__: Install some system wide configuration files for aliases, git configuration and other shell features
 
 # Author
 
