@@ -6,7 +6,7 @@
 #
 
 # Configures locale for ubuntu systems
-template '/etc/defaults/locale' do
+template '/etc/default/locale' do
   source 'locale.erb'
   owner 'root'
   group 'root'

@@ -63,8 +63,9 @@ Vagrant::Config.run do |config|
         }
     }
 
-    chef.run_list = [
-        "recipe[system_base::default]"
-    ]
+    chef.run_list = %w(
+      recipe[system_base::default]
+      recipe[system_base::locale]
+    )
   end
 end
