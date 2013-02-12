@@ -9,3 +9,8 @@
 #   name: 'foo-package', version: '1.2.3', action: 'install'
 # }
 default[:system_base][:packages] = []
+
+# locale attributes
+default[:system_base][:locale][:lang] = 'en_US.UTF-8'
+default[:system_base][:locale][:language] = default[:system_base][:locale][:lang]
+default[:system_base][:locale][:lc_all] = default[:system_base][:locale][:lang]
