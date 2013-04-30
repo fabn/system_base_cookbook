@@ -14,3 +14,6 @@ default[:system_base][:packages] = []
 default[:system_base][:locale][:lang] = 'en_US.UTF-8'
 default[:system_base][:locale][:language] = default[:system_base][:locale][:lang]
 default[:system_base][:locale][:lc_all] = default[:system_base][:locale][:lang]
+
+# Used for adding encrypted attributes to the node using encrypted databag items
+default[:system_base][:secrets_data_bag] = 'secrets'
