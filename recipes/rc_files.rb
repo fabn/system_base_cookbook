@@ -35,3 +35,16 @@ template '/etc/profile.d/shell_config.sh' do
   group 'root'
   mode 0644
 end
+
+# Configure zsh system wide
+ruby_block 'configure zsh system wide' do
+  block do
+    zshenv = Chef::Util::FileEdit.new('/etc/zsh/zshenv')
+    zshenv.insert_line_if_no_match 'DEBIAN_PREVENT_KEYBOARD_CHANGES=yes', 'DEBIAN_PREVENT_KEYBOARD_CHANGES=yes'
+    zshenv.write_file
+    zprofile = Chef::Util::FileEdit.new('/etc/zsh/zprofile')
+    zprofile.insert_line_if_no_match 'source /etc/profile', 'source /etc/profile'
+    zprofile.write_file
+  end
+  only_if 'test -d /etc/zsh'
+end
