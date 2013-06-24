@@ -1,3 +1,9 @@
+## 0.1.5
+
+* aws_environment recipe which provides
+** AWS cli tools installation with pip and autocompletion configuration
+** Configure environment variables for root to use cli tools
+
 ## 0.1.4
 
 * Added missing license

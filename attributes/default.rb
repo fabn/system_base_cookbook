@@ -17,3 +17,7 @@ default[:system_base][:locale][:lc_all] = default[:system_base][:locale][:lang]
 
 # Used for adding encrypted attributes to the node using encrypted databag items
 default[:system_base][:secrets_data_bag] = 'secrets'
+
+# Encrypted Databag used to store aws credentials
+default[:system_base][:aws_databag] = 'aws'
+default[:system_base][:aws_main_item] = 'main'

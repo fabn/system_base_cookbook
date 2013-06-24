@@ -44,6 +44,33 @@ After recipe execution `node[:mysql][:server_root_password]` will contain the de
 The only configurable parameter is `node[:system_base][:secrets_data_bag]` (default: `'secret'`). Attributes are added
 under databag id namespace, so it's not possible to add a top level attribute (such as node[:foo])
 
+### system_base::aws_environment
+
+This recipe configures aws cli tools and command line completion for it on the node.
+
+It also try to setup aws credentials for root user using the following approach,
+ it tries to load an encrypted data bag named `aws::main` with the following content:
+
+```json
+{
+  "id": "main",
+  "aws_access_key_id": "YOUR_ACCESS_KEY",
+  "aws_secret_access_key": "YOUR_SECRET_ACCESS_KEY"
+}
+```
+
+Then for every environment variable found in that databag it writes a file (owned by root with 0600 permissions) with
+ all the environment settings found in that data bag. That file will be put into /etc/profile.d/aws-environment.sh
+ and it will loaded into login (and possibly non login) shells for root. Environment variables created are names of
+ data bag items (all but `id`) uppercased.
+
+If you think that this is a security flaw (if someone gains root privileges on your machine you'll have bigger problems
+ than this) just do not create the databag item and the environment file won't be created.
+
+Please also notice that for your own security you should create a [IAM account](http://aws.amazon.com/iam/) with a minimum
+ set of privileges required to accomplish the task it's used for. For instance if you use it to take EBS snapshots you'll
+ likely need only `ec2_describe_instances` and `ec2_create_snapshot` so create an user with only these privileges.
+
 # Author
 
 Author:: Fabio Napoleoni (<f.napoleoni@gmail.com>)
