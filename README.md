@@ -19,6 +19,7 @@ See `attributes/default.rb` file for commented attributes used in various recipe
 * __system_base::rc_files__: Install some system wide configuration files for aliases, git configuration and other shell features
 * __system_base::secrets__: Add encrypted databag items as node attributes
 * __system_base::mysql_config__: Configure mysql for passwordless usage by root user and install some system utilities
+* __system_base::aws_environment__: Install aws cli tools on the node
 
 # Recipes howto
 

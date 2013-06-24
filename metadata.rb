@@ -8,6 +8,7 @@ version '0.1.4'
 
 # this dependency is used in Debian/Ubuntu to ensure that the package cache is up to date
 depends 'apt', '~> 1.7.0'
+depends 'python', '~> 1.3.4'
 
 %w(ubuntu debian).each do |os|
   supports os
