@@ -7,5 +7,7 @@ fi
 
 # zsh autocompletion for aws cli
 if [ "$ZSH_VERSION" ]; then
+  autoload -U compinit compdef
+  compinit
   source /usr/local/bin/aws_zsh_completer.sh
 fi
