@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[system_base::default]
+      - recipe[system_base::locale]
+      - recipe[system_base::rc_files]
+      - recipe[system_base::mysql_config]
+    attributes:
+      system_base:
+        packages:
+          - name: tree
+          - name: psmisc
+      mysql:
+        server_root_password: 'rootpass'
+        server_debian_password: 'debpass'
+        server_repl_password: 'replpass'

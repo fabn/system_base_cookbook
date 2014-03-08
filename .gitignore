@@ -11,3 +11,7 @@ Gemfile.lock
 
 # Ignore idea files
 .idea/
+
+# Kitche local stuff
+.kitchen/
+.kitchen.local.yml
