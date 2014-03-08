@@ -3,6 +3,7 @@
 # Require this file using `require "spec_helper"` to ensure that it is only
 # loaded once.
 require 'chefspec'
+require 'chefspec/berkshelf'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -15,4 +16,11 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+
+  # Chefspec settings
+  # Specify the operating platform to mock Ohai data from (default: nil)
+  config.platform = 'ubuntu'
+
+  # Specify the operating version to mock Ohai data from (default: nil)
+  config.version = '12.04'
 end
