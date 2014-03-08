@@ -1,6 +1,5 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'berkshelf'
-gem 'thor-foodcritic'
-gem 'vagrant', '~> 1.0.5'
-gem 'chef', '~> 10.16.2'
+gem 'berkshelf', '~> 2.0.0'
+gem 'chef', '~> 11.0'
+gem 'foodcritic'
