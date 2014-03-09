@@ -19,7 +19,7 @@
 
 # Update package cache
 if node[:system_base][:packages].any?
-  case node['platform_family']
+  case node[:platform_family]
     when 'debian'
       include_recipe 'apt'
     else
